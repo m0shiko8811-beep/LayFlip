@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>LayFlip</AssemblyName>
+    <RootNamespace>LayFlip.App</RootNamespace>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- Clipboard GetData(string) is marked obsolete in recent WinForms; it is still the only way to copy arbitrary formats. -->
+    <NoWarn>$(NoWarn);WFDEV005</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <!-- Shrinks the single-file publish (dist\LayFlip.exe). Only applies to self-contained single-file publish. -->
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LayFlip.Core\LayFlip.Core.csproj" />
+  </ItemGroup>
+
+</Project>
